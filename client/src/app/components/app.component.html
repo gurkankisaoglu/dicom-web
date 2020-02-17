@@ -1,0 +1,32 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <button class="mat-button" (click)="loadImage(element.fileName)">See Image</button>
+            </td>
+        </ng-container>
+
+        <!-- Upload Column -->
+        <ng-container matColumnDef="upload">
+            <th mat-header-cell *matHeaderCellDef>
+                <input type="file" formControlName="uploadFile" (change)="uploadFileToServer($event)"/>
+            </th>
+            <td mat-cell *matCellDef="let element">
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator showFirstLastButtons></mat-paginator>
+</div>
