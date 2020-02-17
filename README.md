@@ -1,5 +1,8 @@
 # dicom-web
 
+## Prerequisites
+* angular
+
 ## Installing dependencies
 
 Run `npm install` to install dependencies.
